@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 18px;
+}
+
+.nav li {
+  padding-right: 12px;
+}
+
+.nav img {
+  width: 50px;
+  opacity: 0.5;
+}
