@@ -61,8 +61,7 @@ function App() {
           <Route exact path="/heroes" component={Heroes} />
           <Route path="/heroes/:hero" component={Hero} />
           <Route exact path="/teams" component={Teams} />
-          <Route exact path="/teams/:team" component={Team} />
-          <Route path="/teams/:team/:player" component={Player} />
+          <Route path="/teams/:team" component={Team} />
           <Route path="/matches" component={Matches} />
         </Switch>
       </TeamContext.Provider>

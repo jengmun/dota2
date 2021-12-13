@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, Route } from "react-router-dom";
 import TeamContext from "../context/team-context";
+import Player from "./Player";
 import styles from "./Team.module.css";
 
 const Team = () => {
@@ -14,8 +15,6 @@ const Team = () => {
           return team.team_id == params.team;
         })
       : []; // arr
-
-  console.log(teamData);
 
   const rank =
     teamContext.filteredTeamData.length !== 0
@@ -44,63 +43,71 @@ const Team = () => {
           <div className={styles.head}>
             <img src={teamData.logo_url}></img>
             <div>
-              <h1>{teamData.name}</h1>
+              <h1>
+                <NavLink to={`/teams/${teamData.team_id}`}>
+                  {teamData.name}
+                </NavLink>
+              </h1>
               <h3>RANK: {rank}</h3>
             </div>
           </div>
-          <div className={styles.members}>
-            <div className={styles.current}>
-              <div className={`${styles.currentHeader} ${styles.header}`}>
-                <span>Current Members</span>
+
+          <Route exact path="/teams/:team">
+            <div className={styles.members}>
+              <div className={styles.current}>
+                <div className={`${styles.currentHeader} ${styles.header}`}>
+                  <span>Current Members</span>
+                </div>
+                <div className={styles.memberContainer}>
+                  <ol>
+                    {membersData.map((member) => {
+                      return member.is_current_team_member === true &&
+                        member.name !== " " &&
+                        member.name !== "" &&
+                        member.name !== null ? (
+                        <li>
+                          <NavLink
+                            to={`/teams/${teamData.team_id}/${member.account_id}`}
+                          >
+                            {member.name}
+                          </NavLink>
+                        </li>
+                      ) : (
+                        ""
+                      );
+                    })}
+                  </ol>
+                </div>
               </div>
-              <div className={styles.memberContainer}>
-                <ol>
-                  {membersData.map((member) => {
-                    return member.is_current_team_member === true &&
-                      member.name !== " " &&
-                      member.name !== "" &&
-                      member.name !== null ? (
-                      <li>
-                        <NavLink
-                          to={`/teams/${teamData.team_id}/${member.account_id}`}
-                        >
-                          {member.name}
-                        </NavLink>
-                        <Player></Player>
-                      </li>
-                    ) : (
-                      ""
-                    );
-                  })}
-                </ol>
+              <div className={styles.former}>
+                <div className={`${styles.formerHeader} ${styles.header}`}>
+                  <span>Former Members</span>
+                </div>
+                <div className={styles.memberContainer}>
+                  <ol>
+                    {membersData.map((member) => {
+                      return member.is_current_team_member !== true &&
+                        member.name !== " " &&
+                        member.name !== "" &&
+                        member.name !== null ? (
+                        <li>
+                          <NavLink
+                            to={`/teams/${teamData.team_id}/${member.account_id}`}
+                          >
+                            {member.name}
+                          </NavLink>
+                        </li>
+                      ) : (
+                        ""
+                      );
+                    })}
+                  </ol>
+                </div>
               </div>
-            </div>
-            <div className={styles.former}>
-              <div className={`${styles.formerHeader} ${styles.header}`}>
-                <span>Former Members</span>
-              </div>
-              <div className={styles.memberContainer}>
-                <ol>
-                  {membersData.map((member) => {
-                    return member.is_current_team_member !== true &&
-                      member.name !== " " &&
-                      member.name !== "" &&
-                      member.name !== null ? (
-                      <li>
-                        <NavLink
-                          to={`/teams/${teamData.team_id}/${member.account_id}`}
-                        >
-                          {member.name}
-                        </NavLink>
-                      </li>
-                    ) : (
-                      ""
-                    );
-                  })}
-                </ol>
-              </div>
-            </div>
-          </div>
+            </div>{" "}
+          </Route>
+
+          <Route path="/teams/:team/:player" component={Player} />
         </>
       ) : (
         ""

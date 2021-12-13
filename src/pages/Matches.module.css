@@ -1,0 +1,48 @@
+.container {
+  width: 100vw;
+}
+
+.container table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container tr {
+  width: 80%;
+  display: flex;
+}
+
+.container th,
+td {
+  width: 25%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container th {
+  text-transform: uppercase;
+  border-bottom: 1px solid #ff6046;
+}
+
+.container td {
+  font-family: "Charlotte";
+  font-weight: normal;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.row {
+  transition: transform 0.5s;
+}
+
+.row:hover {
+  background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
+  background-size: cover;
+  transform: scale(1.1);
+}

@@ -1,8 +1,18 @@
 .player {
   display: flex;
-  position: absolute;
-  background-color: black;
-  bottom: 50%;
+  border: #b1a9a6 1px solid;
+  padding: 10px;
+  margin-top: 10px;
+  width: 400px;
+}
+
+.player div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  line-height: 40px;
+
+  justify-content: center;
 }
 
 .player img {
@@ -12,4 +22,12 @@
 .player a {
   color: white;
   text-decoration: none;
+}
+
+.player h4 {
+  font-size: 18px;
+  font-family: "Charlotte";
+  font-weight: lighter;
+  margin: 0;
+  line-height: 20px;
 }
