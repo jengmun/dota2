@@ -1,0 +1,101 @@
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.head div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 20px;
+}
+
+.head img {
+  width: 100px;
+}
+
+.head h1,
+h3 {
+  margin: 0;
+}
+
+.head h3 {
+  font-family: "Charlotte";
+  color: #b1a9a6;
+}
+
+.current,
+.former {
+  display: flex;
+  flex-direction: row;
+  max-width: 1350px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container ol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 380px;
+  margin: 10px;
+  justify-content: center;
+  column-gap: 20px;
+  line-height: 40px;
+}
+
+.memberContainer {
+  display: flex;
+  align-items: center;
+  min-width: 500px;
+  width: 30%;
+  background: rgb(17, 17, 17);
+  font-size: 25x;
+}
+
+.container li {
+  margin: 0 10px 0 10px;
+  font-family: "Charlotte";
+}
+
+.container a {
+  text-decoration: none;
+  color: white;
+}
+.container a:hover {
+  text-decoration: underline #ff6046;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  width: 500px;
+  height: 400px;
+  background-size: cover;
+  text-align: center;
+}
+
+.header span {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.currentHeader {
+  background-image: url("https://wallpapersbq.com/images/dota-2/dota-2-wallpaper-22.jpg");
+}
+
+.formerHeader {
+  background-image: url("http://wallpaperstock.net/dota-2-coco_wallpapers_32265_1600x1200.jpg");
+}

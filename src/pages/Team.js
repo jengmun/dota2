@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import TeamContext from "../context/team-context";
+import styles from "./Team.module.css";
 
 const Team = () => {
   const params = useParams();
@@ -37,42 +38,69 @@ const Team = () => {
   }, [teamData]);
 
   return (
-    <div>
+    <div className={styles.container}>
       {teamContext.filteredTeamData.length !== 0 ? (
         <>
-          <h3>RANK: {rank}</h3>
-          <h1>{teamData.name}</h1>
-
-          <ul>Current Members</ul>
-          {membersData.map((member) => {
-            return member.is_current_team_member === true &&
-              member.name !== " " &&
-              member.name !== "" &&
-              member.name !== null ? (
-              <li>
-                <NavLink to={`/teams/${teamData.team_id}/${member.account_id}`}>
-                  {member.name}
-                </NavLink>
-              </li>
-            ) : (
-              ""
-            );
-          })}
-          <ul>Past Members</ul>
-          {membersData.map((member) => {
-            return member.is_current_team_member !== true &&
-              member.name !== " " &&
-              member.name !== "" &&
-              member.name !== null ? (
-              <li>
-                <NavLink to={`/teams/${teamData.team_id}/${member.account_id}`}>
-                  {member.name}
-                </NavLink>
-              </li>
-            ) : (
-              ""
-            );
-          })}
+          <div className={styles.head}>
+            <img src={teamData.logo_url}></img>
+            <div>
+              <h1>{teamData.name}</h1>
+              <h3>RANK: {rank}</h3>
+            </div>
+          </div>
+          <div className={styles.members}>
+            <div className={styles.current}>
+              <div className={`${styles.currentHeader} ${styles.header}`}>
+                <span>Current Members</span>
+              </div>
+              <div className={styles.memberContainer}>
+                <ol>
+                  {membersData.map((member) => {
+                    return member.is_current_team_member === true &&
+                      member.name !== " " &&
+                      member.name !== "" &&
+                      member.name !== null ? (
+                      <li>
+                        <NavLink
+                          to={`/teams/${teamData.team_id}/${member.account_id}`}
+                        >
+                          {member.name}
+                        </NavLink>
+                        <Player></Player>
+                      </li>
+                    ) : (
+                      ""
+                    );
+                  })}
+                </ol>
+              </div>
+            </div>
+            <div className={styles.former}>
+              <div className={`${styles.formerHeader} ${styles.header}`}>
+                <span>Former Members</span>
+              </div>
+              <div className={styles.memberContainer}>
+                <ol>
+                  {membersData.map((member) => {
+                    return member.is_current_team_member !== true &&
+                      member.name !== " " &&
+                      member.name !== "" &&
+                      member.name !== null ? (
+                      <li>
+                        <NavLink
+                          to={`/teams/${teamData.team_id}/${member.account_id}`}
+                        >
+                          {member.name}
+                        </NavLink>
+                      </li>
+                    ) : (
+                      ""
+                    );
+                  })}
+                </ol>
+              </div>
+            </div>
+          </div>
         </>
       ) : (
         ""

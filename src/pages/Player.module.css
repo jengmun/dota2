@@ -1,0 +1,15 @@
+.player {
+  display: flex;
+  position: absolute;
+  background-color: black;
+  bottom: 50%;
+}
+
+.player img {
+  width: 100px;
+}
+
+.player a {
+  color: white;
+  text-decoration: none;
+}

@@ -24,13 +24,6 @@
   margin: 0;
 }
 
-.nav img {
-  display: flex;
-  width: 50px;
-  opacity: 0.5;
-  margin-left: 20px;
-}
-
 .nav input {
   width: 15vw;
   max-width: 200px;
@@ -44,9 +37,15 @@
 }
 
 .nav a {
-  color: white;
+  color: #9c9592;
   opacity: 0.5;
   text-decoration: none;
+}
+
+.nav img {
+  display: flex;
+  height: 40px;
+  margin-left: 20px;
 }
 
 .nav a:hover,

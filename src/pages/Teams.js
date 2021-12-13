@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import TeamRow from "../components/teams/TeamRow";
 import TeamContext from "../context/team-context";
+import styles from "./Teams.module.css";
 
 const Teams = () => {
   const teamContext = useContext(TeamContext);
@@ -10,7 +11,7 @@ const Teams = () => {
   });
 
   return (
-    <div>
+    <div className={styles.table}>
       <table>
         <tr>
           <th>Rank</th>

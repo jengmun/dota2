@@ -1,13 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../images/logo.png";
 import styles from "./Nav.module.css";
 
 const Nav = () => {
   return (
     <nav className={styles.nav}>
       <NavLink to="/">
-        <img src={logo} alt="logo" />
+        <img
+          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/nav/logo.png"
+          alt="logo"
+        />
       </NavLink>
 
       <ul>

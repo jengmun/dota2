@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import TeamContext from "../context/team-context";
+import styles from "./Player.module.css";
 
 const Player = () => {
   const teamContext = useContext(TeamContext);
@@ -19,15 +20,15 @@ const Player = () => {
   return (
     <>
       {data !== "" ? (
-        <>
-          <h1>{data.team_name}</h1>
+        <div className={styles.player}>
+          <h3>{data.team_name}</h3>
           <img src={data.avatar} />
-          <h1>
+          <h3>
             <a href={data.profileurl} target="_blank">
               {data.name}
             </a>
-          </h1>
-        </>
+          </h3>
+        </div>
       ) : (
         ""
       )}
