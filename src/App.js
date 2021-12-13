@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import TeamContext from "./context/team-context";
-import Header from "./components/header/Header";
+import Nav from "./components/header/Nav";
 import Main from "./pages/Main";
 import Heroes from "./pages/Heroes";
 import Hero from "./pages/Hero";
@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div>
-      <Header></Header>
+      <Nav></Nav>
       <TeamContext.Provider value={{ playerData, filteredTeamData }}>
         <Switch>
           <Route exact path="/" component={Main} />

@@ -28,16 +28,18 @@ const Heroes = () => {
 
   return (
     <div className={styles.heroes}>
-      {data.map((hero) => {
-        return (
-          <HeroImg
-            name={hero.localized_name}
-            image={hero.img}
-            attr={hero.primary_attr}
-            data={hero}
-          ></HeroImg>
-        );
-      })}
+      <div className={styles.container}>
+        {data.map((hero) => {
+          return (
+            <HeroImg
+              name={hero.localized_name}
+              image={hero.img}
+              attr={hero.primary_attr}
+              data={hero}
+            ></HeroImg>
+          );
+        })}
+      </div>
     </div>
   );
 };

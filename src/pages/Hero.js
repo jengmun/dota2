@@ -8,91 +8,124 @@ const Hero = () => {
 
   const baseAttribute =
     data.primary_attr.toLowerCase() === "str"
-      ? data.base_str
+      ? {
+          attribute: data.base_str,
+          img: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
+          attributeName: "strength",
+        }
       : data.primary_attr.toLowerCase() === "agi"
-      ? data.base_agi
-      : data.base_int;
+      ? {
+          attribute: data.base_agi,
+          img: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
+          attributeName: "agility",
+        }
+      : {
+          attribute: data.base_int,
+          img: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
+          attributeName: "intelligence",
+        };
 
   return (
     <div className={styles.hero}>
-      <img src={`https://steamcdn-a.akamaihd.net${data.img}`}></img>
-      <h3>{data.primary_attr.toUpperCase()}</h3>
-      <h1>{data.localized_name.toUpperCase()}</h1>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.headerContainer}>
+            <div className={styles.attribute}>
+              <img src={baseAttribute.img} width="30px"></img>
+              <p>{baseAttribute.attributeName}</p>
+            </div>
+            <h1>{data.localized_name}</h1>
 
-      <h3>ATTACK TYPE</h3>
-      <h3>{data.attack_type.toUpperCase()}</h3>
-      <div className={styles.stats}>
-        <ul>
-          <li>
-            <img
-              src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"
-              width="20px"
-            />
-            Strength: <span>{data.base_str}</span>
-          </li>
-          <li>
-            <img
-              src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png"
-              width="20px"
-            />
-            Agility: <span>{data.base_agi}</span>
-          </li>
-          <li>
-            <img
-              src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png"
-              width="20px"
-            />
-            Intelligence: <span>{data.base_int}</span>
-          </li>
-          ATTRIBUTES
-        </ul>
-
-        <ul>
-          ATTACK:
-          <li>
-            Base Attack:{" "}
-            <span>
-              {`
-            ${data.base_attack_min + baseAttribute} - 
-            ${data.base_attack_max + baseAttribute}`}
-            </span>
-          </li>
-          <li>
-            Attack Rate: <span>{data.attack_rate}</span>
-          </li>
-          <li>
-            Attack Range: <span>{data.attack_range}</span>
-          </li>
-          {data.projectile_speed !== 0 && (
+            <div className={styles.attackType}>
+              <h4>ATTACK TYPE</h4>
+              <p>{data.attack_type}</p>
+            </div>
+          </div>
+          <img
+            src={`https://steamcdn-a.akamaihd.net${data.img}`}
+            id={styles.avatar}
+          ></img>
+        </div>
+        <div className={styles.stats}>
+          <ul id={styles.attr}>
             <li>
-              Projectile Speed: <span>{data.projectile_speed}</span>
+              <img
+                src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"
+                width="30px"
+              />
+              <span>{data.base_str}</span>
             </li>
-          )}
-        </ul>
+            <li>
+              <img
+                src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png"
+                width="30px"
+              />
+              <span>{data.base_agi}</span>
+            </li>
+            <li>
+              <img
+                src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png"
+                width="30px"
+              />
+              <span>{data.base_int}</span>
+            </li>
+            <h4>ATTRIBUTES</h4>
+          </ul>
 
-        <ul>
-          DEFENSE:
-          <li>
-            Base Armour: <span>{data.base_armor + data.base_agi / 6}</span>
-          </li>
-          <li>
-            Magic Resistance: <span>{data.base_mr}%</span>
-          </li>
-        </ul>
+          <ul>
+            <li>
+              Base Attack:
+              <span>
+                {`
+            ${data.base_attack_min + baseAttribute.attribute} - 
+            ${data.base_attack_max + baseAttribute.attribute}`}
+              </span>
+            </li>
+            <li>
+              Attack Rate: <span>{data.attack_rate}</span>
+            </li>
+            <li>
+              Attack Range: <span>{data.attack_range}</span>
+            </li>
+            {data.projectile_speed !== 0 && (
+              <li>
+                Projectile Speed: <span>{data.projectile_speed}</span>
+              </li>
+            )}
+            <h4>ATTACK</h4>
+          </ul>
 
-        <ul>
-          MOBILITY:
-          <li>
-            Movement Speed: <span>{data.move_speed}</span>
-          </li>
-        </ul>
+          <ul>
+            <li>
+              Base Armour:{" "}
+              <span>
+                {Math.round((data.base_armor + data.base_agi / 6) * 10) / 10}
+              </span>
+            </li>
+            <li>
+              Magic Resistance: <span>{data.base_mr}%</span>
+            </li>
+            <h4>DEFENSE</h4>
+          </ul>
 
-        <ul>
-          {data.roles.map((role) => {
-            return <li>{role}</li>;
-          })}
-          ROLES
-        </ul>
+          <ul>
+            <li>
+              Movement Speed: <span>{data.move_speed}</span>
+            </li>
+            <h4>MOBILITY</h4>
+          </ul>
+
+          <ul>
+            {data.roles.map((role) => {
+              return (
+                <li>
+                  <span>{role}</span>
+                </li>
+              );
+            })}
+            <h4>ROLES</h4>
+          </ul>
+        </div>
       </div>
     </div>
   );

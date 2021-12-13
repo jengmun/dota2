@@ -1,30 +1,46 @@
 .nav {
   display: flex;
   flex-direction: row;
-}
-.nav {
-  display: flex;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  padding: 10px 0 10px 0;
 }
 
 .nav ul {
   display: flex;
   flex-direction: row;
   list-style: none;
-  font-size: 22px;
-  font-family: Albertus Nova;
+  font-size: 20px;
+  font-family: "Albertus Nova";
   text-transform: uppercase;
+  padding-left: 50px;
+  flex-wrap: wrap;
 }
 
 .nav li {
   padding: 0;
-  padding-right: 12px;
+  padding-right: 50px;
   margin: 0;
 }
 
 .nav img {
+  display: flex;
   width: 50px;
   opacity: 0.5;
+  margin-left: 20px;
+}
+
+.nav input {
+  width: 15vw;
+  max-width: 200px;
+  height: 20px;
+  background-color: rgb(32, 32, 32);
+  border: none;
+  margin-left: auto;
+  margin-right: 30px;
+  font-size: 15px;
+  color: white;
 }
 
 .nav a {

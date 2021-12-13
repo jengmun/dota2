@@ -27,6 +27,8 @@ const Nav = () => {
           </NavLink>
         </li>
       </ul>
+
+      <input placeholder="Search"></input>
     </nav>
   );
 };

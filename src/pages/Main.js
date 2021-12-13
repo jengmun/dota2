@@ -1,11 +1,12 @@
 import React from "react";
 import main from "../images/main.jpg";
+import styles from "./main.module.css";
 
 const Main = () => {
   return (
-    <div>
+    <div className={styles.main}>
       <a href="https://www.dota2.com/home" target="_blank">
-        <img src={main} style={{ width: "95vw", margin: 0, padding: 0 }} />
+        <img src={main} alt="main" />
       </a>
     </div>
   );
