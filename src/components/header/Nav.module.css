@@ -2,18 +2,43 @@
   display: flex;
   flex-direction: row;
 }
+.nav {
+  display: flex;
+  align-items: center;
+}
+
 .nav ul {
   display: flex;
   flex-direction: row;
   list-style: none;
-  font-size: 18px;
+  font-size: 22px;
+  font-family: Albertus Nova;
+  text-transform: uppercase;
 }
 
 .nav li {
+  padding: 0;
   padding-right: 12px;
+  margin: 0;
 }
 
 .nav img {
   width: 50px;
   opacity: 0.5;
+}
+
+.nav a {
+  color: white;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav img:hover {
+  opacity: 1;
+}
+
+.nav .active {
+  opacity: 1;
+  border-bottom: solid 3px #ff6046;
 }

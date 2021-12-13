@@ -12,10 +12,20 @@ const Nav = () => {
 
       <ul>
         <li>
-          <NavLink to="/heroes">Heroes</NavLink>
+          <NavLink to="/heroes" activeClassName={styles.active}>
+            Heroes
+          </NavLink>
         </li>
-        <li>Teams</li>
-        <li>Matches</li>
+        <li>
+          <NavLink to="/teams" activeClassName={styles.active}>
+            Teams
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/matches" activeClassName={styles.active}>
+            Matches
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

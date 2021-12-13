@@ -1,5 +1,10 @@
 .heroes {
+  background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
+  background-attachment: fixed;
+  background-size: cover;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 1350px;
+  justify-content: center;
 }

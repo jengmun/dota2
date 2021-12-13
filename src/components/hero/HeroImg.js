@@ -3,6 +3,35 @@ import { NavLink } from "react-router-dom";
 import styles from "./HeroImg.module.css";
 
 const HeroImg = (props) => {
+  let attribute = "";
+
+  switch (props.attr) {
+    case "str":
+      attribute = (
+        <img
+          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"
+          width="32px"
+        />
+      );
+      break;
+    case "agi":
+      attribute = (
+        <img
+          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png"
+          width="32px"
+        />
+      );
+      break;
+    case "int":
+      attribute = (
+        <img
+          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png"
+          width="32px"
+        />
+      );
+      break;
+  }
+
   return (
     <div>
       <NavLink
@@ -16,10 +45,8 @@ const HeroImg = (props) => {
           }}
         >
           <div>
-            <h3>
-              {props.attr}
-              {props.name}
-            </h3>
+            {attribute}
+            <h3>{props.name}</h3>
           </div>
         </div>
       </NavLink>

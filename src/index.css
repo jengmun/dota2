@@ -1,6 +1,24 @@
+@font-face {
+  font-family: "Trajan Bold";
+  src: url("./fonts/TrajanBold/TrajanBold.ttf");
+}
+
+@font-face {
+  font-family: "Albertus Nova";
+  src: url("./fonts/AlbertusNova.otf");
+}
+
+@font-face {
+  font-family: "Charlotte";
+  src: url("./fonts/Charlotte/Charlotte.otf");
+}
+
 body {
-  background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
-  background-attachment: fixed;
-  background-size: cover;
+ background-color: rgb(10,10,10);
   color: #808fa6;
+  font-family: "Albertus Nova";
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin: 0;
 }

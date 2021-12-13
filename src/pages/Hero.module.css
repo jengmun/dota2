@@ -1,0 +1,27 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Charlotte";
+  color: #b2b2b2;
+  background-image: url("https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/backgrounds/greyfade.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.hero h1 {
+  font-family: "Albertus Nova";
+  color: white;
+}
+
+.hero li {
+  text-transform: uppercase;
+  list-style-type: none;
+}
+
+.stats {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}

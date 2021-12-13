@@ -8,7 +8,18 @@ const Heroes = () => {
   const fetchHeroes = async () => {
     const res = await fetch("https://api.opendota.com/api/heroStats");
     const heroesData = await res.json();
-    setData(heroesData);
+    const sortedData = heroesData.sort(function (a, b) {
+      const nameA = a.localized_name;
+      const nameB = b.localized_name;
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    setData(sortedData);
   };
 
   useEffect(() => {
