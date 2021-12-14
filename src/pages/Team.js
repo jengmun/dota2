@@ -2,12 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useParams, Route } from "react-router-dom";
 import TeamContext from "../context/team-context";
 import Player from "./Player";
+import LoadingSpinner from "../components/LoadingSpinner";
 import styles from "./Team.module.css";
 
 const Team = () => {
   const params = useParams();
   const teamContext = useContext(TeamContext);
   const [membersData, setMembersData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const teamData =
     teamContext.filteredTeamData.length !== 0
@@ -27,9 +29,11 @@ const Team = () => {
     const res = await fetch(url);
     const data = await res.json();
     setMembersData(data);
+    setLoading(false);
   };
 
   useEffect(() => {
+    setLoading(true);
     if (teamData.length !== 0) {
       const url = `https://api.opendota.com/api/teams/${teamData.team_id}/players`;
       fetchMembersData(url);
@@ -38,7 +42,9 @@ const Team = () => {
 
   return (
     <div className={styles.container}>
-      {teamContext.filteredTeamData.length !== 0 ? (
+      {loading ? (
+        <LoadingSpinner />
+      ) : teamContext.filteredTeamData.length !== 0 ? (
         <>
           <div className={styles.head}>
             <img src={teamData.logo_url}></img>

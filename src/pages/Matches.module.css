@@ -11,6 +11,7 @@
 
 .container tr {
   width: 80%;
+  min-width: 600px;
   display: flex;
 }
 
@@ -27,6 +28,7 @@ td {
 .container th {
   text-transform: uppercase;
   border-bottom: 1px solid #ff6046;
+  position: relative;
 }
 
 .container td {
@@ -41,6 +43,13 @@ td {
   white-space: nowrap;
   overflow: hidden;
   line-height: 50px;
+}
+
+.container img {
+  width: 60px;
+  position: absolute;
+  bottom: 20px;
+  margin: 5px;
 }
 
 .row {

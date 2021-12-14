@@ -55,7 +55,15 @@ const Matches = () => {
           <th>Radiant</th>
           <th>Score</th>
           <th>Dire</th>
-          <th>League</th>
+          <th>
+            League
+            <a
+              href="https://www.twitch.tv/directory/game/Dota%202"
+              target="_blank"
+            >
+              <img src="https://lh4.googleusercontent.com/proxy/CgYA0EV56qeM92wmgW1O-HsDHKiVkXw4SMfVNOI3r3YZn5IqcGo9is7_9X3MVQnaq5Gc349jo8g4pvcj223n4fQlkLM=w1200-h630-p-k-no-nu" />
+            </a>
+          </th>
         </tr>
         {matches}
       </table>

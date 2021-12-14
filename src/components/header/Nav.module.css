@@ -57,6 +57,7 @@
 
 .search input {
   width: 100%;
+  min-width: 60px;
   height: 25px;
   background-color: rgb(32, 32, 32);
   margin: 0;
