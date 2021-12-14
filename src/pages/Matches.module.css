@@ -21,6 +21,7 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
 .container th {
@@ -29,16 +30,22 @@ td {
 }
 
 .container td {
+  display: block;
   font-family: "Charlotte";
   font-weight: normal;
   color: white;
   font-size: 20px;
   text-transform: uppercase;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 50px;
 }
 
 .row {
   transition: transform 0.5s;
+  margin: 1px;
 }
 
 .row:hover {

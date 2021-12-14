@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
+import Search from "./Search";
 
 const Nav = () => {
   return (
@@ -29,8 +30,7 @@ const Nav = () => {
           </NavLink>
         </li>
       </ul>
-
-      <input placeholder="Search"></input>
+      <Search></Search>
     </nav>
   );
 };

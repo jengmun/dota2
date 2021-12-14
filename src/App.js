@@ -7,7 +7,6 @@ import Heroes from "./pages/Heroes";
 import Hero from "./pages/Hero";
 import Teams from "./pages/Teams";
 import Team from "./pages/Team";
-import Player from "./pages/Player";
 import Matches from "./pages/Matches";
 
 function App() {
@@ -54,8 +53,8 @@ function App() {
 
   return (
     <div>
-      <Nav></Nav>
       <TeamContext.Provider value={{ playerData, filteredTeamData }}>
+        <Nav></Nav>
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/heroes" component={Heroes} />

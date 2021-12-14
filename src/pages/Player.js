@@ -15,8 +15,6 @@ const Player = () => {
         })
       : "";
 
-  console.log(data);
-
   return (
     <>
       {data !== "" ? (
@@ -28,7 +26,13 @@ const Player = () => {
             </a>
             <h4>
               Current Team: <br></br>
-              <Link to={`/teams/${data.team_id}`}>{data.team_name}</Link>
+              {teamContext.filteredTeamData.find((team) => {
+                return team.team_id === data.team_id;
+              }) ? (
+                <Link to={`/teams/${data.team_id}`}>{data.team_name}</Link>
+              ) : (
+                data.team_name
+              )}
             </h4>
           </div>
         </div>
