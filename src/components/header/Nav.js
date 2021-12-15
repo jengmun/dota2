@@ -29,6 +29,11 @@ const Nav = () => {
             Matches
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/bookmarks" activeClassName={styles.active}>
+            Watchlist
+          </NavLink>
+        </li>
       </ul>
       <Search></Search>
     </nav>

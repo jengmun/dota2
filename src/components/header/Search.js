@@ -36,8 +36,6 @@ const Search = () => {
     );
   });
 
-  console.log(searchResults);
-
   return (
     <div className={styles.search}>
       <input

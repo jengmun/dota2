@@ -5,6 +5,16 @@
   font-family: "Charlotte";
   color: #b2b2b2;
   width: 100vw;
+  animation: fadein 1s 1;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .hero h1 {

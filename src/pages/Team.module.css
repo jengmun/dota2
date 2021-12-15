@@ -10,12 +10,12 @@
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
+  animation: fadein 1s 1;
 }
 
 .head div {
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 20px;
 }
 
 .head img {
@@ -40,6 +40,18 @@ h3 {
   margin-top: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  box-shadow: 5px -5px 8px darkgray;
+  border-radius: 50px 50px 0 50px;
+  animation: fadein 1s 1;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .container ol {
@@ -58,6 +70,7 @@ h3 {
   align-items: center;
   min-width: 500px;
   background: rgb(17, 17, 17);
+  border-radius: 0 50px 0 0;
 }
 
 .former .memberContainer {
@@ -109,8 +122,10 @@ h3 {
 
 .currentHeader {
   background-image: url("https://wallpapersbq.com/images/dota-2/dota-2-wallpaper-22.jpg");
+  border-radius: 50px 0 0 50px;
 }
 
 .formerHeader {
   background-image: url("http://wallpaperstock.net/dota-2-coco_wallpapers_32265_1600x1200.jpg");
+  border-radius: 50px 0 0 50px;
 }

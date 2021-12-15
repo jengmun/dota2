@@ -18,6 +18,10 @@
   flex-wrap: wrap;
 }
 
+.nav > ul {
+  letter-spacing: 3px;
+}
+
 .nav li {
   padding: 0;
   padding-right: 50px;
@@ -26,7 +30,7 @@
 
 .nav a {
   color: #9c9592;
-  opacity: 0.5;
+  opacity: 0.6;
   text-decoration: none;
 }
 
@@ -78,7 +82,7 @@
   padding: 0 2px;
   margin: 1px;
   list-style-type: none;
-  background-color: rgba(92, 79, 79, 0.9);
+  background-color: rgba(30, 30, 30, 0.9);
   font-size: 20px;
   z-index: 1;
   position: absolute;
@@ -112,7 +116,7 @@
 }
 
 .search li:hover {
-  background-color: rgba(32, 32, 32, 0.8);
+  background-color: rgba(80, 80, 80, 0.8);
 }
 
 .search input:focus {

@@ -14,7 +14,7 @@
 }
 
 body {
-  background-image: linear-gradient(135deg, rgb(32, 32, 32), rgb(80, 80, 80));
+  background-image: linear-gradient(150deg, rgb(22, 22, 22), rgb(80, 80, 80));
   background-attachment: fixed;
   color: #d2dbe9;
   font-family: "Albertus Nova";
@@ -22,6 +22,13 @@ body {
   justify-content: center;
   width: 100vw;
   margin: 0;
+}
+
+html,
+a,
+input,
+button {
+  cursor: url("./images/cursor.png"), auto;
 }
 
 body::-webkit-scrollbar {

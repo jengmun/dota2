@@ -5,7 +5,7 @@ import Player from "./Player";
 import LoadingSpinner from "../components/LoadingSpinner";
 import styles from "./Team.module.css";
 
-const Team = () => {
+const Team = (props) => {
   const params = useParams();
   const teamContext = useContext(TeamContext);
   const [membersData, setMembersData] = useState([]);
@@ -112,8 +112,12 @@ const Team = () => {
               </div>
             </div>{" "}
           </Route>
-
-          <Route path="/teams/:team/:player" component={Player} />
+          <Route path="/teams/:team/:player">
+            <Player
+              bookmarks={props.bookmarks}
+              setBookmarks={props.setBookmarks}
+            ></Player>
+          </Route>
         </>
       ) : (
         ""

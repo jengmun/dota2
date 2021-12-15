@@ -8,11 +8,13 @@ import Hero from "./pages/Hero";
 import Teams from "./pages/Teams";
 import Team from "./pages/Team";
 import Matches from "./pages/Matches";
+import Bookmarks from "./pages/Bookmarks";
 
 function App() {
   const [teamData, setTeamData] = useState([]);
   const [filteredTeamData, setFilteredTeamData] = useState([]);
   const [playerData, setPlayerData] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]);
 
   const fetchTeamData = async () => {
     try {
@@ -22,24 +24,30 @@ function App() {
         return team.name !== "";
       });
       setTeamData(filteredData);
-    } catch (error) {} // to update
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const fetchPlayerData = async () => {
-    const res = await fetch("https://api.opendota.com/api/proPlayers");
-    const data = await res.json();
-    setPlayerData(data);
-    const filteredData = [];
-    for (const team of teamData) {
-      if (
-        data.find(({ team_id }) => {
-          return team_id === team.team_id;
-        })
-      ) {
-        filteredData.push(team);
+    try {
+      const res = await fetch("https://api.opendota.com/api/proPlayers");
+      const data = await res.json();
+      setPlayerData(data);
+      const filteredData = [];
+      for (const team of teamData) {
+        if (
+          data.find(({ team_id }) => {
+            return team_id === team.team_id;
+          })
+        ) {
+          filteredData.push(team);
+        }
       }
+      setFilteredTeamData(filteredData);
+    } catch (error) {
+      console.error(error);
     }
-    setFilteredTeamData(filteredData);
   };
 
   useEffect(() => {
@@ -60,8 +68,13 @@ function App() {
           <Route exact path="/heroes" component={Heroes} />
           <Route path="/heroes/:hero" component={Hero} />
           <Route exact path="/teams" component={Teams} />
-          <Route path="/teams/:team" component={Team} />
+          <Route path="/teams/:team">
+            <Team bookmarks={bookmarks} setBookmarks={setBookmarks}></Team>
+          </Route>
           <Route path="/matches" component={Matches} />
+          <Route path="/bookmarks">
+            <Bookmarks bookmarks={bookmarks}></Bookmarks>
+          </Route>
         </Switch>
       </TeamContext.Provider>
     </div>
