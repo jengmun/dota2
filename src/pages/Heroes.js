@@ -74,7 +74,6 @@ const Heroes = () => {
   );
 };
 
-/* <Route path="/heroes/:hero" component={Hero} />  */
 /* should only nest routes if you want the parent route to still be visible */
 
 export default Heroes;

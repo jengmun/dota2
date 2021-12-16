@@ -170,7 +170,7 @@
 
 .skills div {
   width: 60%;
-  height: 30vh;
+  min-height: 30vh;
   text-align: center;
   background-color: rgba(20, 20, 20, 0.6);
   margin-bottom: 10px;

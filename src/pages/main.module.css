@@ -51,8 +51,5 @@
 .logo img {
   width: 35%;
   margin: 0;
-}
-
-.logo :first-child {
-  width: 50px;
+  padding-top: 50px;
 }

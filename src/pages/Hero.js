@@ -38,9 +38,7 @@ const Hero = () => {
           !skillsArr.find(
             (skill) => skill.dname === teamContext.skillsData[key]["dname"]
           ) &&
-          //   teamContext.skillsData[key]["behavior"] !== "Passive"
           !teamContext.skillsData[key]["behavior"].includes("Hidden")
-          //   teamContext.skillsData[key]["dname"] !== undefined
         ) {
           skillsArr.push({ ...teamContext.skillsData[key], key });
         }
@@ -52,9 +50,6 @@ const Hero = () => {
   useEffect(() => {
     handleSkillsData();
   }, [teamContext.skillsData]);
-
-  // const [selectedSkill, setSelectedSkill] = useState(skills[0].dname);
-  // passive, missing names, duplicate
 
   return (
     <div className={styles.hero}>

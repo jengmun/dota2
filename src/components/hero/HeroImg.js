@@ -36,7 +36,7 @@ const HeroImg = (props) => {
     <div>
       <NavLink
         to={{ pathname: `/heroes/${props.name}`, state: { data: props.data } }}
-        // state must be object
+        // state must be an object
       >
         <div
           className={styles.heroImg}

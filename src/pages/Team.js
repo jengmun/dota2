@@ -16,7 +16,7 @@ const Team = (props) => {
       ? teamContext.filteredTeamData.find((team) => {
           return team.team_id == params.team;
         })
-      : []; // arr
+      : [];
 
   const rank =
     teamContext.filteredTeamData.length !== 0
