@@ -30,6 +30,8 @@ const HeroImg = (props) => {
         />
       );
       break;
+    default:
+      console.error("error");
   }
 
   return (
