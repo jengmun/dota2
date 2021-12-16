@@ -15,8 +15,6 @@ const Bookmarks = (props) => {
     );
   });
 
-  console.log(props.bookmarks);
-
   return (
     <div className={styles.bookmarks}>
       <div>
