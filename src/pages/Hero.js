@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
 import TeamContext from "../context/team-context";
 import styles from "./Hero.module.css";
 
