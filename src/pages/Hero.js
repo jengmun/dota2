@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react/cjs/react.development";
+import TeamContext from "../context/team-context";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
   const location = useLocation();
   const { data } = location.state;
+  const teamContext = useContext(TeamContext);
+  const [skills, setSkills] = useState([]);
+  const [selectedSkill, setSelectedSkill] = useState();
 
   const baseAttribute =
     data.primary_attr.toLowerCase() === "str"
@@ -25,6 +30,32 @@ const Hero = () => {
           attributeName: "intelligence",
         };
 
+  const handleSkillsData = () => {
+    const skillsArr = [];
+    for (const key in teamContext.skillsData) {
+      if (key.startsWith(data.name.slice(14))) {
+        if (
+          !skillsArr.find(
+            (skill) => skill.dname === teamContext.skillsData[key]["dname"]
+          ) &&
+          //   teamContext.skillsData[key]["behavior"] !== "Passive"
+          !teamContext.skillsData[key]["behavior"].includes("Hidden")
+          //   teamContext.skillsData[key]["dname"] !== undefined
+        ) {
+          skillsArr.push({ ...teamContext.skillsData[key], key });
+        }
+      }
+    }
+    setSkills(skillsArr);
+  };
+
+  useEffect(() => {
+    handleSkillsData();
+  }, [teamContext.skillsData]);
+
+  // const [selectedSkill, setSelectedSkill] = useState(skills[0].dname);
+  // passive, missing names, duplicate
+
   return (
     <div className={styles.hero}>
       <div className={styles.container}>
@@ -35,7 +66,6 @@ const Hero = () => {
               <p>{baseAttribute.attributeName}</p>
             </div>
             <h1>{data.localized_name}</h1>
-
             <div className={styles.attackType}>
               <h4>ATTACK TYPE</h4>
               <p>{data.attack_type}</p>
@@ -125,6 +155,58 @@ const Hero = () => {
             })}
             <h4>ROLES</h4>
           </ul>
+        </div>
+        <div className={styles.skills}>
+          <ul>
+            {skills.map((skill) => {
+              return (
+                <>
+                  <li
+                    onClick={() => {
+                      setSelectedSkill(skill);
+                    }}
+                  >
+                    <img
+                      src={`https://cdn.cloudflare.steamstatic.com${skill.img}`}
+                      onError={(e) => {
+                        e.target.onError = null;
+                        e.target.src =
+                          "https://i.pinimg.com/originals/27/ff/39/27ff3902c1363a776c9db6ee6f7d76d8.jpg";
+                      }}
+                    ></img>
+                  </li>
+                </>
+              );
+            })}
+          </ul>
+
+          <div>
+            {selectedSkill === undefined ? (
+              skills.length !== 0 ? (
+                <>
+                  <h1>
+                    {skills[0].dname
+                      ? skills[0].dname
+                      : skills[0].key.slice(data.localized_name.length)}
+                  </h1>
+                  <p>{skills[0].desc}</p>
+                </>
+              ) : (
+                ""
+              )
+            ) : (
+              <>
+                <h1>
+                  {selectedSkill.dname
+                    ? selectedSkill.dname
+                    : selectedSkill.key
+                        .slice(data.localized_name.length + 1)
+                        .replaceAll("_", " ")}
+                </h1>
+                <p>{selectedSkill.desc}</p>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

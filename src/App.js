@@ -14,6 +14,7 @@ function App() {
   const [teamData, setTeamData] = useState([]);
   const [filteredTeamData, setFilteredTeamData] = useState([]);
   const [playerData, setPlayerData] = useState([]);
+  const [skillsData, setSkillsData] = useState({});
   const [bookmarks, setBookmarks] = useState([]);
 
   const fetchTeamData = async () => {
@@ -50,9 +51,22 @@ function App() {
     }
   };
 
+  const fetchSkillsData = async () => {
+    try {
+      const res = await fetch(
+        "https://raw.githubusercontent.com/odota/dotaconstants/master/build/abilities.json"
+      );
+      const data = await res.json();
+      setSkillsData(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     fetchTeamData();
     fetchPlayerData();
+    fetchSkillsData();
   }, []);
 
   useEffect(() => {
@@ -61,7 +75,9 @@ function App() {
 
   return (
     <div>
-      <TeamContext.Provider value={{ playerData, filteredTeamData }}>
+      <TeamContext.Provider
+        value={{ playerData, filteredTeamData, skillsData }}
+      >
         <Nav></Nav>
         <Switch>
           <Route exact path="/" component={Main} />

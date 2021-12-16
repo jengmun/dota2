@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../images/loading-spinner.png";
+import image from "../../images/loading-spinner.png";
 import styles from "./LoadingSpinner.module.css";
 
 const LoadingSpinner = () => {

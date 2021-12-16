@@ -1,1 +1,1 @@
-# dota2pedia
+# dota2

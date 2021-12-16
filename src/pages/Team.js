@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useParams, Route } from "react-router-dom";
 import TeamContext from "../context/team-context";
 import Player from "./Player";
-import LoadingSpinner from "../components/LoadingSpinner";
+import LoadingSpinner from "../components/loading_spinner/LoadingSpinner";
 import styles from "./Team.module.css";
 
 const Team = (props) => {

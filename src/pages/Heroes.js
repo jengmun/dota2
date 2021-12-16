@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeroImg from "../components/hero/HeroImg";
 import styles from "./Heroes.module.css";
-import LoadingSpinner from "../components/LoadingSpinner";
+import LoadingSpinner from "../components/loading_spinner/LoadingSpinner";
 
 const Heroes = () => {
   const [data, setData] = useState([]);
