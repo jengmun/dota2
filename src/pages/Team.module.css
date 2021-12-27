@@ -122,11 +122,11 @@ h3 {
 }
 
 .currentHeader {
-  background-image: url("https://wallpapersbq.com/images/dota-2/dota-2-wallpaper-22.jpg");
+  background-image: url("../images/current-header.jpg");
   border-radius: 50px 0 0 50px;
 }
 
 .formerHeader {
-  background-image: url("http://wallpaperstock.net/dota-2-coco_wallpapers_32265_1600x1200.jpg");
+  background-image: url("../images/previous-header.jpg");
   border-radius: 50px 0 0 50px;
 }
