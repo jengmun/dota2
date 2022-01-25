@@ -1,5 +1,7 @@
 # Dota 2
 
+Please visit [this link](https://dota2-db.netlify.app) to view the app!
+
 # Built With
 
 - HTML
@@ -9,10 +11,6 @@
 # APIs Used
 
 - OpenDota API
-
-# Unsolved Problems
-
-- Deployment
 
 # Credits
 
