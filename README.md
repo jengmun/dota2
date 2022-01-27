@@ -17,10 +17,6 @@ Please visit [this link](https://dota2-db.netlify.app) to view the app!
 - Retrieves the latest information on professional teams, players, and matches.
 - Included functionality to bookmark a player for easy reference.
 
-# APIs Used
-
-
-
 # Credits
 
 - OpenDota API
