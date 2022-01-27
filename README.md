@@ -1,6 +1,6 @@
 # Dota 2
 
-Made for SEI33 - Project 3 <br>
+Made for SEI33 - Project 2 <br>
 Please visit [this link](https://dota2-db.netlify.app) to view the app!
 
 # Built With
@@ -12,6 +12,8 @@ Please visit [this link](https://dota2-db.netlify.app) to view the app!
 # APIs Used
 
 - OpenDota API
+
+# 
 
 # Credits
 
